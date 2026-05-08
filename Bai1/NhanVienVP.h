@@ -1,23 +1,16 @@
-#ifndef NHANVIEN_H
-#define NHANVIEN_H
+#ifndef NHANVIENSX_H
+#define NHANVIENSX_H
 
-#include<iostream>
-#include<string>
-using namespace std;
-class NhanVien
+#include"NhanVien.h"
+class NhanVienSX:public NhanVien
 {
-   protected:
-      string hoTen;
-      int ngay,thang,nam;
-      double luong;
+  private:
+       double luongCanBan;
+       int soSanPham;
    public:
-    virtual void nhap();
-    virtual void xuat();
-    virtual double tinhLuong()=0;
-    double getLuong();
-    int getNgay();
-    int getThang();
-    int getNam();
+    void nhap();
+    void xuat();
+    double tinhLuong();
 };
 
 #endif
