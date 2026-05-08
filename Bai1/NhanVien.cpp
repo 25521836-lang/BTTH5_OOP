@@ -5,16 +5,28 @@ void NhanVien::nhap(){
     cout<<"Nhap ho ten:";
     getline(cin,hoTen);
     cout<<"Nhap ngay sinh:";
-    getline(cin,ngaySinh);
+    cin>>ngay>>thang>>nam;
 }
 void NhanVien::xuat(){
     cout<<"Ho ten:"<<hoTen<<endl;
-    cout<<"Ngay sinh:"<<ngaySinh<<endl;
+    cout<<"Ngay sinh:"<<ngay<<"/"<<thang<<"/"<<nam<<endl;
     cout<<"luong:"<<tinhLuong()<<endl;
 }
 double NhanVien::getLuong(){
     return tinhLuong();
 }
-string NhanVien::getNgaySinh(){
-    return ngaySinh;
+int NhanVien::getNgay()
+{
+    return ngay;
 }
+
+int NhanVien::getThang()
+{
+    return thang;
+}
+
+int NhanVien::getNam()
+{
+    return nam;
+}
+
