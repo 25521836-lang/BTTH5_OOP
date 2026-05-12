@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<iomanip>
 #include"NhanVienSX.h"
 #include"NhanVienVP.h"
 using namespace std;
@@ -34,6 +35,7 @@ int main(){
     for(int i=0;i<m;i++){
         tongLuong+=dsVP[i].getLuong();
     }
+    cout<<fixed<<setprecision(0);
     cout<<"\nTong luong cong ty phai tra:"<<tongLuong<<endl;
     int luongSXmin=0;
     for(int i=0;i<n;i++){
@@ -43,14 +45,17 @@ int main(){
     }
     cout<<"\nLuong san xuat thap nhat:"<<endl;
     dsSX[luongSXmin].xuat();
-    int tuoiVPmax=0;
-    for(int i=0;i<m;i++){
-        if(dsVP[i].getNgaySinh()<dsVP[tuoiVPmax].getNgaySinh()){
-            tuoiVPmax=i;
-        }
+   int vpMin = 0;
+
+for(int i = 1; i < m; i++){
+    if(dsVP[i].getNam() < dsVP[vpMin].getNam() ||
+      (dsVP[i].getNam() == dsVP[vpMin].getNam() && dsVP[i].getThang() < dsVP[vpMin].getThang()) ||
+      (dsVP[i].getNam() == dsVP[vpMin].getNam() && dsVP[i].getThang() == dsVP[vpMin].getThang() && dsVP[i].getNgay() < dsVP[vpMin].getNgay())){
+        vpMin = i;
     }
-    cout<<"\nTuoi van phong cao nhat:"<<endl;
-    dsVP[tuoiVPmax].xuat();
+}
+cout << "\nNhan vien van phong co tuoi lon nhat:" << endl;
+dsVP[vpMin].xuat();
     return 0;
 
 }
