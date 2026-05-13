@@ -1,7 +1,7 @@
 #include "GiaoDich.h"
 
 void GiaoDich::Nhap(){
-    cin.ignore();
+    cin.ignore(1000,'\n');
     cout<<"Nhap ma giao dich:";
     getline(cin,maGD);
     cout<<"Nhap ngay giao dich:";
