@@ -1,0 +1,15 @@
+#ifndef CAODANG_H
+#define CAODANG_H
+
+#include"SinhVien.h"
+class CaoDang:public SinhVien
+{
+   private:
+    double diemThiTN;
+   public:
+    void Nhap();
+    void Xuat();
+    bool totNghiep();
+};
+
+#endif
