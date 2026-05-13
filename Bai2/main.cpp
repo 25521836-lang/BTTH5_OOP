@@ -33,15 +33,14 @@ int main(){
         cout << "\nNhap giao dich can ho thu " << i + 1 << endl;
         dsCanHo[i].Nhap();
     }
+    cout<<"\nTong so luong cua GD dat:"<<nDat<<endl;
+    cout<<"Tong so luong cuar GD nha pho:"<<nNha<<endl;
+    cout<<"Tong so luong cua GD can ho:"<<nCanHo<<endl;
     cout<<"\n====Danh sach dao dich dat====\n";
     for(int i=0;i< nDat;i++){
         dsDat[i].Xuat();
         cout<<endl;
     }
-    cout<<"\nTong so luong cua GD dat:"<<nDat<<endl;
-    cout<<"Tong so luong cuar GD nha pho:"<<nNha<<endl;
-    cout<<"Tong so luong cua GD can ho:"<<nCanHo<<endl;
-
       cout << "\n===== DANH SACH GIAO DICH NHA PHO =====\n";
 
     for(int i = 0; i < nNha; i++){
