@@ -13,6 +13,8 @@ public:
     void nhap(istream &in);
 
     double tinhTien();
+
+    int getSoNamThanThiet();
 };
 
 #endif
