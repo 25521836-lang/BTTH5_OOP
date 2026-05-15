@@ -2,19 +2,11 @@
 #define KHACHHANGB_H
 
 #include "KhachHang.h"
-
-class KhachHangB : public KhachHang{
-
+class KhachHangB : public KhachHang {
 private:
     int soNamThanThiet;
-
 public:
-
-    void nhap(istream &in);
-
+    void nhap();
     double tinhTien();
-
-    int getSoNamThanThiet();
 };
-
 #endif
