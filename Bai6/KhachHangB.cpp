@@ -1,31 +1,25 @@
 #include "KhachHangB.h"
 
-void KhachHangB::nhap(istream &in){
-
-    KhachHang::nhap(in);
-
+void KhachHangB::nhap() {
+    cin.ignore();
+    cout << "Nhap ten khach hang: ";
+    getline(cin, tenKhachHang);
+    cout << "Nhap so luong hang: ";
+    cin >> soLuongHang;
+    cout << "Nhap don gia hang: ";
+    cin >> donGiaHang;
     cout << "Nhap so nam than thiet: ";
-    in >> soNamThanThiet;
-
-    in.ignore();
+    cin >> soNamThanThiet;
 }
 
-double KhachHangB::tinhTien(){
+double KhachHangB::tinhTien() {
 
-    double khuyenMai = soNamThanThiet * 0.05;
+    double tien = soLuongHang * donGiaHang;
 
-    if(khuyenMai > 0.5){
-        khuyenMai = 0.5;
-    }
+    double giam = soNamThanThiet * 0.05;
 
-    double tien = soLuong * donGia;
+    if (giam > 0.5)
+        giam = 0.5;
 
-    tien = tien * (1 - khuyenMai);
-
-    return tien + tien * 0.1;
-}
-
-int KhachHangB::getSoNamThanThiet(){
-
-    return soNamThanThiet;
+    return tien * (1 - giam) + tien * 0.1;
 }
