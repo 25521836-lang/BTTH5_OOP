@@ -2,11 +2,8 @@
 #define KHACHHANGA_H
 
 #include "KhachHang.h"
-
-class KhachHangA : public KhachHang{
-
+class KhachHangA : public KhachHang {
 public:
-
     double tinhTien();
 };
 
