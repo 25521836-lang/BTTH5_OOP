@@ -1,120 +1,87 @@
 #include<iostream>
-#include<fstream>
+#include<string>
 
 #include "KhachHangA.h"
 #include "KhachHangB.h"
 #include "KhachHangC.h"
 
 using namespace std;
-
-int main(){
-
-    ofstream inp("XYZ.INP");
-
-    ofstream out("XYZ.OUT");
-
+int main() {
     int x, y, z;
-
+    KhachHangA dsA[100];
+    KhachHangB dsB[100];
+    KhachHangC dsC[100];
     cout << "Nhap so khach hang loai A: ";
     cin >> x;
-
-    cout << "Nhap so khach hang loai B: ";
-    cin >> y;
-
-    cout << "Nhap so khach hang loai C: ";
-    cin >> z;
-
-    cin.ignore();
-
-    inp << x << " " << y << " " << z << endl;
-
-    KhachHangA dsA[1000];
-
-    KhachHangB dsB[1000];
-
-    KhachHangC dsC[1000];
-
-    double tong = 0;
-
-    cout << "\n===== NHAP KHACH HANG LOAI A =====\n";
-
-    for(int i = 0; i < x; i++){
-
+    for (int i = 0; i < x; i++) {
         cout << "\nKhach hang A thu " << i + 1 << endl;
-
-        dsA[i].nhap(cin);
-
-        inp << dsA[i].getTen() << endl;
-        inp << dsA[i].getSoLuong() << endl;
-        inp << dsA[i].getDonGia() << endl;
+        dsA[i].nhap();
     }
-
-    cout << "\n===== NHAP KHACH HANG LOAI B =====\n";
-
-    for(int i = 0; i < y; i++){
-
+    cout << "\nNhap so khach hang loai B: ";
+    cin >> y;
+    for (int i = 0; i < y; i++) {
         cout << "\nKhach hang B thu " << i + 1 << endl;
-
-        dsB[i].nhap(cin);
-
-        inp << dsB[i].getTen() << endl;
-        inp << dsB[i].getSoLuong() << endl;
-        inp << dsB[i].getDonGia() << endl;
-        inp << dsB[i].getSoNamThanThiet() << endl;
+        dsB[i].nhap();
     }
-
-    cout << "\n===== NHAP KHACH HANG LOAI C =====\n";
-
-    for(int i = 0; i < z; i++){
-
+    cout << "\nNhap so khach hang loai C: ";
+    cin >> z;
+    for (int i = 0; i < z; i++) {
         cout << "\nKhach hang C thu " << i + 1 << endl;
-
-        dsC[i].nhap(cin);
-
-        inp << dsC[i].getTen() << endl;
-        inp << dsC[i].getSoLuong() << endl;
-        inp << dsC[i].getDonGia() << endl;
+        dsC[i].nhap();
+    }
+    cout << "\n========== xyz.inp ==========\n" << endl;
+    for (int i = 0; i < x; i++) {
+        cout << "TenKhachHangA" << i + 1 << ": "
+             << dsA[i].getTen() << endl;
+        cout << "SoLuongHangA" << i + 1 << ": "
+             << dsA[i].getSoLuong() << endl;
+        cout << "DonGiaHangA" << i + 1 << ": "
+             << dsA[i].getDonGia() << endl;
+        cout << endl;
+    }
+    for (int i = 0; i < y; i++) {
+        cout << "TenKhachHangB" << i + 1 << ": "
+             << dsB[i].getTen() << endl;
+        cout << "SoLuongHangB" << i + 1 << ": "
+             << dsB[i].getSoLuong() << endl;
+        cout << "DonGiaHangB" << i + 1 << ": "
+             << dsB[i].getDonGia() << endl;
+        cout << endl;
     }
 
-    out << x << " " << y << " " << z << endl;
-
-    for(int i = 0; i < x; i++){
-
-        double tien = dsA[i].tinhTien();
-
-        out << dsA[i].getTen() << endl;
-        out << tien << endl;
-
-        tong += tien;
+    for (int i = 0; i < z; i++) {
+        cout << "TenKhachHangC" << i + 1 << ": "
+             << dsC[i].getTen() << endl;
+        cout << "SoLuongHangC" << i + 1 << ": "
+             << dsC[i].getSoLuong() << endl;
+        cout << "DonGiaHangC" << i + 1 << ": "
+             << dsC[i].getDonGia() << endl;
+        cout << endl;
     }
+    cout << "\n========== xyz.out ==========\n" << endl;
+    for (int i = 0; i < x; i++) {
 
-    for(int i = 0; i < y; i++){
+        cout << "TenKhachHangA" << i + 1 << ": "
+             << dsA[i].getTen() << endl;
 
-        double tien = dsB[i].tinhTien();
+        cout << "SoTienPhaiTraA" << i + 1 << ": "
+             << dsA[i].tinhTien() << endl;
 
-        out << dsB[i].getTen() << endl;
-        out << tien << endl;
-
-        tong += tien;
+        cout << endl;
     }
-
-    for(int i = 0; i < z; i++){
-
-        double tien = dsC[i].tinhTien();
-
-        out << dsC[i].getTen() << endl;
-        out << tien << endl;
-
-        tong += tien;
+    for (int i = 0; i < y; i++) {
+        cout << "TenKhachHangB" << i + 1 << ": "
+             << dsB[i].getTen() << endl;
+        cout << "SoTienPhaiTraB" << i + 1 << ": "
+             << dsB[i].tinhTien() << endl;
+        cout << endl;
     }
-
-    out << "Tong so tien cong ty thu duoc: " << tong;
-
-    inp.close();
-
-    out.close();
-
-    cout << "\nDa tao file XYZ.INP va XYZ.OUT";
-
+    for (int i = 0; i < z; i++) {
+        cout << "TenKhachHangC" << i + 1 << ": "
+             << dsC[i].getTen() << endl;
+        cout << "SoTienPhaiTraC" << i + 1 << ": "
+             << dsC[i].tinhTien() << endl;
+        cout << endl;
+    }
     return 0;
 }
