@@ -7,6 +7,7 @@
 
 using namespace std;
 int main(){
+    ofstream inp("XYZ.INP");
     ofstream out("XYZ.OUT");
     int x, y, z;
     cout << "Nhap so khach hang loai A: ";
@@ -16,6 +17,7 @@ int main(){
     cout << "Nhap so khach hang loai C: ";
     cin >> z;
     cin.ignore();
+    inp << x << " " << y << " " << z << endl;
     KhachHangA dsA[1000];
     KhachHangB dsB[1000];
     KhachHangC dsC[1000];
@@ -24,17 +26,19 @@ int main(){
     for(int i = 0; i < x; i++){
         cout << "\nKhach hang A thu " << i + 1 << endl;
         dsA[i].nhap(cin);
+        inp << dsA[i].getTen() << endl;
     }
     cout << "\n===== NHAP KHACH HANG LOAI B =====\n";
     for(int i = 0; i < y; i++){
         cout << "\nKhach hang B thu " << i + 1 << endl;
         dsB[i].nhap(cin);
+        inp << dsB[i].getTen() << endl;
     }
-
     cout << "\n===== NHAP KHACH HANG LOAI C =====\n";
     for(int i = 0; i < z; i++){
         cout << "\nKhach hang C thu " << i + 1 << endl;
         dsC[i].nhap(cin);
+        inp << dsC[i].getTen() << endl;
     }
     out << x << " " << y << " " << z << endl;
     for(int i = 0; i < x; i++){
@@ -56,7 +60,21 @@ int main(){
         tong += tien;
     }
     out << "Tong so tien cong ty thu duoc: " << tong;
+    inp.close();
     out.close();
-    cout << "\nDa ghi file XYZ.OUT thanh cong";
+    cout << "\nDa tao file XYZ.INP va XYZ.OUT\n";
+    ifstream xemIn("XYZ.INP");
+    string s;
+    cout << "\n===== NOI DUNG FILE XYZ.INP =====\n";
+    while(getline(xemIn, s)){
+        cout << s << endl;
+    }
+    xemIn.close();
+    ifstream xemOut("XYZ.OUT");
+    cout << "\n===== NOI DUNG FILE XYZ.OUT =====\n";
+    while(getline(xemOut, s)){
+        cout << s << endl;
+    }
+    xemOut.close();
     return 0;
 }
