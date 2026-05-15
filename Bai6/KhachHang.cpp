@@ -1,30 +1,20 @@
 #include "KhachHang.h"
 
-void KhachHang::nhap(istream &in){
-
-    cout << "Nhap ho ten: ";
-    getline(in, ten);
-
+void KhachHang::nhap() {
+    cin.ignore();
+    cout << "Nhap ten khach hang: ";
+    getline(cin, tenKhachHang);
     cout << "Nhap so luong hang: ";
-    in >> soLuong;
-
+    cin >> soLuongHang;
     cout << "Nhap don gia hang: ";
-    in >> donGia;
-
-    in.ignore();
+    cin >> donGiaHang;
 }
-
-string KhachHang::getTen(){
-
-    return ten;
+void KhachHang::xuatINP(ofstream &file) {
+    file << tenKhachHang << endl;
+    file << soLuongHang << endl;
+    file << donGiaHang << endl;
 }
-
-int KhachHang::getSoLuong(){
-
-    return soLuong;
-}
-
-double KhachHang::getDonGia(){
-
-    return donGia;
+void KhachHang::xuatOUT(ofstream &file) {
+    file << tenKhachHang << endl;
+    file << tinhTien() << endl;
 }
