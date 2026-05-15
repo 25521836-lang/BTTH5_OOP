@@ -20,6 +20,10 @@ public:
     virtual double tinhTien() = 0;
 
     string getTen();
+
+    int getSoLuong();
+
+    double getDonGia();
 };
 
 #endif
