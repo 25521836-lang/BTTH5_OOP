@@ -1,15 +1,22 @@
-#ifndef LAPTRINHVIEN_H
-#define LAPTRINHVIEN_H
+#ifndef NHANVIEN_H
+#define NHANVIEN_H
 
-#include"NhanVien.h"
-class LapTrinhVien:public NhanVien
+#include<iostream>
+#include<string>
+using namespace std;
+class NhanVien
 {
-private:
-    int soGio;
+protected:
+     string maNV;
+     string hoTen;
+     string sdt;
+     string email;
+     double luongCoBan;
 public:
-    void Nhap();
-    void Xuat();
-    double luong();
+    virtual void Nhap();
+    virtual void Xuat();
+    virtual double luong();
+    double getLuong();
 };
 
 #endif
